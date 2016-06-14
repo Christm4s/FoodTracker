@@ -16,6 +16,18 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     @IBOutlet weak var ratingControl: RatingControl!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
+    @IBAction func saveThisMeal(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true) { 
+            let name = self.nameTextField.text ?? ""
+            let photo = self.photoImageView.image
+            let rating = self.ratingControl.rating
+            
+            // Set the meal to be passed to MealListTableViewController after the unwind segue.
+            self.meal = Meal(name: name, photo: photo, rating: rating)
+            NSNotificationCenter.defaultCenter().postNotificationName(MEALS_UPDATED, object: nil, userInfo: ["meal" : self.meal!])
+        }
+    }
+    
     /*
      This value is either passed by `MealTableViewController` in `prepareForSegue(_:sender:)`
      or constructed as part of adding a new meal.
@@ -81,7 +93,7 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     
     // This method lets you configure a view controller before it's presented.
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if saveButton === sender {
+        if (sender as! UIBarButtonItem) == saveButton {
             let name = nameTextField.text ?? ""
             let photo = photoImageView.image
             let rating = ratingControl.rating
@@ -108,6 +120,10 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         
         presentViewController(imagePickerController, animated: true, completion: nil)
     }
-    
+ 
+  /*  @IBAction func segueForUnwindingToViewController(toViewController: MealTableViewController, fromViewController: MealViewController)  {
+        
+        dismissViewControllerAnimated(true, completion: nil)
+    }*/
 }
 

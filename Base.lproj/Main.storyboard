@@ -65,7 +65,7 @@
         <!--New Meal-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MealViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="newMeal" id="BYZ-38-t0r" customClass="MealViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -118,7 +118,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="1Ni-EX-Bax">
                             <connections>
-                                <segue destination="PdZ-lk-kKJ" kind="unwind" unwindAction="unwindToMealList:" id="iGt-qT-r31"/>
+                                <action selector="saveThisMeal:" destination="BYZ-38-t0r" id="b9e-Ly-aOZ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -130,7 +130,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <exit id="PdZ-lk-kKJ" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="UU9-uw-w60">
                     <connections>
                         <action selector="selectImageFromPhotoLibrary:" destination="BYZ-38-t0r" id="bWo-DF-olY"/>
