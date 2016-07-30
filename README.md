@@ -1,2 +1,2 @@
 # FoodTracker
-An app which records your daliy meals and their ratings.
+An app in which you can record your meals and their ratings.
