@@ -1,2 +1,2 @@
 # FoodTracker
-An iOS app which helps you record your meals and their ratings.
+An iOS app which helps you record your meals and rate them.
